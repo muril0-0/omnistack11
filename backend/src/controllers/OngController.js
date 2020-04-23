@@ -1,5 +1,5 @@
-const crypto = require("crypto"); //Lib de criptografia para gerar id's aleatórios
 const connection = require("../database/connection"); //Comunicação com o banco
+const GenerateUniqueId = require("../utils/GenerateUniqueId");
 
 module.exports = {
   async index(request, response) {
@@ -11,8 +11,7 @@ module.exports = {
   async create(request, response) {
     const { name, email, whatsapp, city, uf } = request.body;
 
-    const id = crypto.randomBytes(4).toString("HEX"); //Criação de id aleatório
-
+    const id = GenerateUniqueId();
     await connection("ongs").insert({
       //Inserindo os dados no schema ongs
       id,

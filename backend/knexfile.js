@@ -12,6 +12,17 @@ module.exports = {
     useNullAsDefault: true, //Permite preencher os campos com valores null
   },
 
+  test: {
+    client: "sqlite3",
+    connection: {
+      filename: "./src/database/test.sqlite", //Arquivo do banco
+    },
+    migrations: {
+      directory: "./src/database/migrations", //Arquivo das migrações (algo como as entidades)
+    },
+    useNullAsDefault: true, //Permite preencher os campos com valores null
+  },
+
   staging: {
     client: "postgresql",
     connection: {
